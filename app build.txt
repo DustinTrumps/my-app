@@ -1,0 +1,2 @@
+build app for prview: npm run tauri dev
+build app: bash flatpak/build_all.sh
