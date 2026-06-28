@@ -62,7 +62,7 @@ fn read_photo(path: String) -> Result<PhotoData, String> {
         if let Ok(exif) = exif::Reader::new().read_from_container(&mut std::io::Cursor::new(&bytes)) {
             for field in exif.fields() {
                 let name = field.tag.to_string();
-                let value = field.display_value().to_string();
+                let value = field.display_value().to_string().trim_matches('"').to_string();
                 metadata.insert(name, json!(value));
             }
         }

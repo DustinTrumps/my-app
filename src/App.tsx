@@ -73,11 +73,23 @@ function App() {
               <tbody>
                 <tr>
                   <td>Camera</td>
-                  <td>{[photo.Make, photo.Model].filter(Boolean).join(" ")}</td>
+                  <td>{photo.Make} {photo.Model}</td>
+                </tr>
+                <tr>
+                  <td>lens</td>
+                  <td>{photo.LensModel} at {photo.FocalLength}mm</td>
                 </tr>
                 <tr>
                   <td>Date Taken</td>
                   <td>{photo["DateTimeOriginal"]?.replace(/:/g, (_m: string, i: number) => (i < 10 ? "-" : ":"))}</td>
+                </tr>
+                <tr>
+                  <td>Color Type</td>
+                  <td>{photo["Color Type"]}</td>
+                </tr>
+                <tr>
+                  <td>Exposure</td>
+                  <td>{photo.ExposureTime} F{photo.FNumber} ISO {photo.PhotographicSensitivity}</td>
                 </tr>
                 <tr>
                   <td>Dimensions</td>
